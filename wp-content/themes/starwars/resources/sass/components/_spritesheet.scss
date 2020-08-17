@@ -1,0 +1,41 @@
+.sprite {
+    background-image: url(../img/sprite/spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-icon-facebook {
+    width: 58px;
+    height: 59px;
+    background-position: -20px -20px;
+}
+
+.sprite-icon-instagram {
+    width: 59px;
+    height: 59px;
+    background-position: -118px -20px;
+}
+
+.sprite-icon-play {
+    width: 59px;
+    height: 59px;
+    background-position: -217px -20px;
+}
+
+.sprite-mask_01 {
+    width: 330px;
+    height: 240px;
+    background-position: -316px -20px;
+}
+
+.sprite-mask_02 {
+    width: 330px;
+    height: 240px;
+    background-position: -686px -20px;
+}
+
+.sprite-mask_03 {
+    width: 330px;
+    height: 240px;
+    background-position: -1056px -20px;
+}

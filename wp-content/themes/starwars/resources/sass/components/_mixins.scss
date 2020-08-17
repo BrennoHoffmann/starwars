@@ -1,0 +1,131 @@
+﻿// MIXIN PREFIXES
+@mixin border-radius($x){
+	-webkit-border-radius: $x;
+	 -khtml-border-radius: $x;
+	   -moz-border-radius: $x;
+	        border-radius: $x;
+}
+
+@mixin transform($x){
+	-webkit-transform: $x;
+	   -moz-transform: $x;
+	    -ms-transform: $x;
+	     -o-transform: $x;
+	        transform: $x;
+}
+
+@mixin transition($x:all, $y:1s, $z:ease, $w:0s){
+	-webkit-transition: $x $y $z $w;
+	   -moz-transition: $x $y $z $w;
+	        transition: $x $y $z $w;
+}
+
+@mixin box-shadow($x:1px, $y:1px, $z:1px, $w:rgba(0,0,0,.5), $k:outset ){
+	-webkit-box-shadow: $x $y $z $w $k;
+	   -moz-box-shadow: $x $y $z $w $k;
+	        box-shadow: $x $y $z $w $k;
+}
+
+@mixin opacity($x){
+	 -khtml-opacity: $x;
+	   -moz-opacity: $x;
+	        opacity: $x;
+}
+
+@mixin animation($nome, $x:1s, $y:ease, $z:0s, $w:alternate){
+	-webkit-animation: $nome $x $y $z $w;
+	   -moz-animation: $nome $x $y $z $w;
+	        animation: $nome $x $y $z $w;
+}
+
+@mixin box-sizing($x:border-box){
+	-webkit-box-sizing: $x;
+	   -moz-box-sizing: $x;
+	        box-sizing: $x;
+}
+
+@mixin cover-background($img-uri) {
+    background: url($img-uri) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+// FONT INCLUDE
+@mixin font-face($font-family, $file-path, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font-family;
+      src: url('#{$file-path}.eot');
+      src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+           url('#{$file-path}.woff') format('woff'),
+           url('#{$file-path}.ttf') format('truetype'),
+           url('#{$file-path}.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+  // Chrome for Windows rendering fix: http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+      font-family: $font-family;
+        src: url('#{$file-path}.svg##{$font-family}') format('svg');
+    }
+  }
+}
+
+// MEDIA QUERIES 
+@mixin wide {
+  @media (min-width: #{$wide-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin max-desktop {
+  @media (min-width: #{$max-desktop-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin max-tablet {
+  @media (max-width: #{$max-tablet-width}) {
+    @content;
+  }
+}
+
+
+@mixin tablet-small {
+  @media (min-width: #{$tablet-small-width}) {
+    @content;
+  }
+}
+
+@mixin max-mobile {
+  @media (max-width: #{$max-mobile-width}) {
+    @content;
+  }
+}
+
+
+@mixin mobile {
+  @media (min-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin mobile-small {
+  @media (min-width: #{$mobile-small-width}) {
+    @content;
+  }
+}
+

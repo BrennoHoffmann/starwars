@@ -1,0 +1,353 @@
+// COMPONENTS 
+@import "../components/_extends.scss";
+@import "../components/_mixins.scss";
+
+/* GRID */
+
+@mixin container($maxWidth){
+	width:100%;
+	max-width: $maxWidth;
+	padding:0 15px;
+	margin:0 auto;
+}
+
+.row{
+	width:calc(100% + 30px);
+	margin-left:-15px;
+	
+		&:after{
+			@extend %clearfix;
+		}
+}
+
+.col{
+	float:left;
+	padding:0 15px;
+	
+	&.col-to-center{
+		float:none;
+		margin:0 auto;
+	}	
+	
+	&.mobile-1-1{width:100%;}
+	
+	&.mobile-1-2{width:50%;}
+	&.mobile-2-2{width:100%;}	
+
+	&.mobile-1-3{width:calc((99.999% / 3));}
+	&.mobile-2-3{width:calc((99.999% / 3) * 2);}
+	&.mobile-3-3{width:100%;}
+
+	&.mobile-1-4{width:calc((99.999% / 4));}
+	&.mobile-2-4{width:calc((99.999% / 4) * 2);}
+	&.mobile-3-4{width:calc((99.999% / 4) * 3);}
+	&.mobile-4-4{width:100%;}
+	
+	&.mobile-1-5{width:calc((99.999% / 5));}
+	&.mobile-2-5{width:calc((99.999% / 5) * 2);}
+	&.mobile-3-5{width:calc((99.999% / 5) * 3);}
+	&.mobile-4-5{width:calc((99.999% / 5) * 4);}
+	&.mobile-5-5{width:100%;}
+
+	&.mobile-1-6{width:calc((99.999% / 6));}
+	&.mobile-2-6{width:calc((99.999% / 6) * 2);}
+	&.mobile-3-6{width:calc((99.999% / 6) * 3);}
+	&.mobile-4-6{width:calc((99.999% / 6) * 4);}
+	&.mobile-5-6{width:calc((99.999% / 6) * 5);}
+	&.mobile-6-6{width:100%;}
+	
+	&.mobile-1-7{width:calc((99.999% / 7));}
+	&.mobile-2-7{width:calc((99.999% / 7) * 2);}
+	&.mobile-3-7{width:calc((99.999% / 7) * 3);}
+	&.mobile-4-7{width:calc((99.999% / 7) * 4);}
+	&.mobile-5-7{width:calc((99.999% / 7) * 5);}
+	&.mobile-6-7{width:calc((99.999% / 7) * 6);}
+	&.mobile-7-7{width:100%;}	
+	
+	&.mobile-1-8{width:calc((99.999% / 8));}
+	&.mobile-2-8{width:calc((99.999% / 8) * 2);}
+	&.mobile-3-8{width:calc((99.999% / 8) * 3);}
+	&.mobile-4-8{width:calc((99.999% / 8) * 4);}
+	&.mobile-5-8{width:calc((99.999% / 8) * 5);}
+	&.mobile-6-8{width:calc((99.999% / 8) * 6);}
+	&.mobile-7-8{width:calc((99.999% / 8) * 7);}
+	&.mobile-8-8{width:100%;}	
+	
+	
+	@include mobile{
+		&.mobile-landscape-1-1{width:100%;}
+		
+		&.mobile-landscape-1-2{width:50%;}
+		&.mobile-landscape-2-2{width:100%;}	
+
+		&.mobile-landscape-1-3{width:calc((99.999% / 3));}
+		&.mobile-landscape-2-3{width:calc((99.999% / 3) * 2);}
+		&.mobile-landscape-3-3{width:100%;}
+
+		&.mobile-landscape-1-4{width:calc((99.999% / 4));}
+		&.mobile-landscape-2-4{width:calc((99.999% / 4) * 2);}
+		&.mobile-landscape-3-4{width:calc((99.999% / 4) * 3);}
+		&.mobile-landscape-4-4{width:100%;}
+		
+		&.mobile-landscape-1-5{width:calc((99.999% / 5));}
+		&.mobile-landscape-2-5{width:calc((99.999% / 5) * 2);}
+		&.mobile-landscape-3-5{width:calc((99.999% / 5) * 3);}
+		&.mobile-landscape-4-5{width:calc((99.999% / 5) * 4);}
+		&.mobile-landscape-5-5{width:100%;}
+
+		&.mobile-landscape-1-6{width:calc((99.999% / 6));}
+		&.mobile-landscape-2-6{width:calc((99.999% / 6) * 2);}
+		&.mobile-landscape-3-6{width:calc((99.999% / 6) * 3);}
+		&.mobile-landscape-4-6{width:calc((99.999% / 6) * 4);}
+		&.mobile-landscape-5-6{width:calc((99.999% / 6) * 5);}
+		&.mobile-landscape-6-6{width:100%;}
+		
+		&.mobile-landscape-1-7{width:calc((99.999% / 7));}
+		&.mobile-landscape-2-7{width:calc((99.999% / 7) * 2);}
+		&.mobile-landscape-3-7{width:calc((99.999% / 7) * 3);}
+		&.mobile-landscape-4-7{width:calc((99.999% / 7) * 4);}
+		&.mobile-landscape-5-7{width:calc((99.999% / 7) * 5);}
+		&.mobile-landscape-6-7{width:calc((99.999% / 7) * 6);}
+		&.mobile-landscape-7-7{width:100%;}	
+		
+		&.mobile-landscape-1-8{width:calc((99.999% / 8));}
+		&.mobile-landscape-2-8{width:calc((99.999% / 8) * 2);}
+		&.mobile-landscape-3-8{width:calc((99.999% / 8) * 3);}
+		&.mobile-landscape-4-8{width:calc((99.999% / 8) * 4);}
+		&.mobile-landscape-5-8{width:calc((99.999% / 8) * 5);}
+		&.mobile-landscape-6-8{width:calc((99.999% / 8) * 6);}
+		&.mobile-landscape-7-8{width:calc((99.999% / 8) * 7);}
+		&.mobile-landscape-8-8{width:100%;}		
+	}
+
+
+	@include tablet{
+		&.tablet-1-1{width:100%;}
+		
+		&.tablet-1-2{width:50%;}
+		&.tablet-2-2{width:100%;}	
+
+		&.tablet-1-3{width:calc((99.999% / 3));}
+		&.tablet-2-3{width:calc((99.999% / 3) * 2);}
+		&.tablet-3-3{width:100%;}
+
+		&.tablet-1-4{width:calc((99.999% / 4));}
+		&.tablet-2-4{width:calc((99.999% / 4) * 2);}
+		&.tablet-3-4{width:calc((99.999% / 4) * 3);}
+		&.tablet-4-4{width:100%;}
+		
+		&.tablet-1-5{width:calc((99.999% / 5));}
+		&.tablet-2-5{width:calc((99.999% / 5) * 2);}
+		&.tablet-3-5{width:calc((99.999% / 5) * 3);}
+		&.tablet-4-5{width:calc((99.999% / 5) * 4);}
+		&.tablet-5-5{width:100%;}
+
+		&.tablet-1-6{width:calc((99.999% / 6));}
+		&.tablet-2-6{width:calc((99.999% / 6) * 2);}
+		&.tablet-3-6{width:calc((99.999% / 6) * 3);}
+		&.tablet-4-6{width:calc((99.999% / 6) * 4);}
+		&.tablet-5-6{width:calc((99.999% / 6) * 5);}
+		&.tablet-6-6{width:100%;}
+		
+		&.tablet-1-7{width:calc((99.999% / 7));}
+		&.tablet-2-7{width:calc((99.999% / 7) * 2);}
+		&.tablet-3-7{width:calc((99.999% / 7) * 3);}
+		&.tablet-4-7{width:calc((99.999% / 7) * 4);}
+		&.tablet-5-7{width:calc((99.999% / 7) * 5);}
+		&.tablet-6-7{width:calc((99.999% / 7) * 6);}
+		&.tablet-7-7{width:100%;}	
+		
+		&.tablet-1-8{width:calc((99.999% / 8));}
+		&.tablet-2-8{width:calc((99.999% / 8) * 2);}
+		&.tablet-3-8{width:calc((99.999% / 8) * 3);}
+		&.tablet-4-8{width:calc((99.999% / 8) * 4);}
+		&.tablet-5-8{width:calc((99.999% / 8) * 5);}
+		&.tablet-6-8{width:calc((99.999% / 8) * 6);}
+		&.tablet-7-8{width:calc((99.999% / 8) * 7);}
+		&.tablet-8-8{width:100%;}			
+	}
+	
+	@include desktop{
+		&.desk-1-1{width:100%;}
+		
+		&.desk-1-2{width:50%;}
+		&.desk-2-2{width:100%;}	
+
+		&.desk-1-3{width:calc((99.999% / 3));}
+		&.desk-2-3{width:calc((99.999% / 3) * 2);}
+		&.desk-3-3{width:100%;}
+
+		&.desk-1-4{width:calc((99.999% / 4));}
+		&.desk-2-4{width:calc((99.999% / 4) * 2);}
+		&.desk-3-4{width:calc((99.999% / 4) * 3);}
+		&.desk-4-4{width:100%;}
+		
+		&.desk-1-5{width:calc((99.999% / 5));}
+		&.desk-2-5{width:calc((99.999% / 5) * 2);}
+		&.desk-3-5{width:calc((99.999% / 5) * 3);}
+		&.desk-4-5{width:calc((99.999% / 5) * 4);}
+		&.desk-5-5{width:100%;}
+
+		&.desk-1-6{width:calc((99.999% / 6));}
+		&.desk-2-6{width:calc((99.999% / 6) * 2);}
+		&.desk-3-6{width:calc((99.999% / 6) * 3);}
+		&.desk-4-6{width:calc((99.999% / 6) * 4);}
+		&.desk-5-6{width:calc((99.999% / 6) * 5);}
+		&.desk-6-6{width:100%;}
+		
+		&.desk-1-7{width:calc((99.999% / 7));}
+		&.desk-2-7{width:calc((99.999% / 7) * 2);}
+		&.desk-3-7{width:calc((99.999% / 7) * 3);}
+		&.desk-4-7{width:calc((99.999% / 7) * 4);}
+		&.desk-5-7{width:calc((99.999% / 7) * 5);}
+		&.desk-6-7{width:calc((99.999% / 7) * 6);}
+		&.desk-7-7{width:100%;}	
+		
+		&.desk-1-8{width:calc((99.999% / 8));}
+		&.desk-2-8{width:calc((99.999% / 8) * 2);}
+		&.desk-3-8{width:calc((99.999% / 8) * 3);}
+		&.desk-4-8{width:calc((99.999% / 8) * 4);}
+		&.desk-5-8{width:calc((99.999% / 8) * 5);}
+		&.desk-6-8{width:calc((99.999% / 8) * 6);}
+		&.desk-7-8{width:calc((99.999% / 8) * 7);}
+		&.desk-8-8{width:100%;}		
+		
+		&.desk-1-9{width:calc((99.999% / 9));}
+		&.desk-2-9{width:calc((99.999% / 9) * 2);}
+		&.desk-3-9{width:calc((99.999% / 9) * 3);}
+		&.desk-4-9{width:calc((99.999% / 9) * 4);}
+		&.desk-5-9{width:calc((99.999% / 9) * 5);}
+		&.desk-6-9{width:calc((99.999% / 9) * 6);}
+		&.desk-7-9{width:calc((99.999% / 9) * 7);}
+		&.desk-8-9{width:calc((99.999% / 9) * 8);}
+		&.desk-9-9{width:100%;}	
+
+		&.desk-1-10{width:calc((99.999% / 10));}
+		&.desk-2-10{width:calc((99.999% / 10) * 2);}
+		&.desk-3-10{width:calc((99.999% / 10) * 3);}
+		&.desk-4-10{width:calc((99.999% / 10) * 4);}
+		&.desk-5-10{width:calc((99.999% / 10) * 5);}
+		&.desk-6-10{width:calc((99.999% / 10) * 6);}
+		&.desk-7-10{width:calc((99.999% / 10) * 7);}
+		&.desk-8-10{width:calc((99.999% / 10) * 8);}
+		&.desk-9-10{width:calc((99.999% / 10) * 9);}
+		&.desk-10-10{width:100%;}
+
+		&.desk-1-11{width:calc((99.999% / 11));}
+		&.desk-2-11{width:calc((99.999% / 11) * 2);}
+		&.desk-3-11{width:calc((99.999% / 11) * 3);}
+		&.desk-4-11{width:calc((99.999% / 11) * 4);}
+		&.desk-5-11{width:calc((99.999% / 11) * 5);}
+		&.desk-6-11{width:calc((99.999% / 11) * 6);}
+		&.desk-7-11{width:calc((99.999% / 11) * 7);}
+		&.desk-8-11{width:calc((99.999% / 11) * 8);}
+		&.desk-9-11{width:calc((99.999% / 11) * 9);}
+		&.desk-10-11{width:calc((99.999% / 11) * 10);}
+		&.desk-11-11{width:100%;}	
+
+		&.desk-1-12{width:calc((99.999% / 12));}
+		&.desk-2-12{width:calc((99.999% / 12) * 2);}
+		&.desk-3-12{width:calc((99.999% / 12) * 3);}
+		&.desk-4-12{width:calc((99.999% / 12) * 4);}
+		&.desk-5-12{width:calc((99.999% / 12) * 5);}
+		&.desk-6-12{width:calc((99.999% / 12) * 6);}
+		&.desk-7-12{width:calc((99.999% / 12) * 7);}
+		&.desk-8-12{width:calc((99.999% / 12) * 8);}
+		&.desk-9-12{width:calc((99.999% / 12) * 9);}
+		&.desk-10-12{width:calc((99.999% / 12) * 10);}
+		&.desk-11-12{width:calc((99.999% / 12) * 11);}
+		&.desk-12-12{width:100%;}			
+	}	
+
+	@include wide{
+		&.wide-1-1{width:100%;}
+		
+		&.wide-1-2{width:50%;}
+		&.wide-2-2{width:100%;}	
+
+		&.wide-1-3{width:calc((99.999% / 3));}
+		&.wide-2-3{width:calc((99.999% / 3) * 2);}
+		&.wide-3-3{width:100%;}
+
+		&.wide-1-4{width:calc((99.999% / 4));}
+		&.wide-2-4{width:calc((99.999% / 4) * 2);}
+		&.wide-3-4{width:calc((99.999% / 4) * 3);}
+		&.wide-4-4{width:100%;}
+		
+		&.wide-1-5{width:calc((99.999% / 5));}
+		&.wide-2-5{width:calc((99.999% / 5) * 2);}
+		&.wide-3-5{width:calc((99.999% / 5) * 3);}
+		&.wide-4-5{width:calc((99.999% / 5) * 4);}
+		&.wide-5-5{width:100%;}
+
+		&.wide-1-6{width:calc((99.999% / 6));}
+		&.wide-2-6{width:calc((99.999% / 6) * 2);}
+		&.wide-3-6{width:calc((99.999% / 6) * 3);}
+		&.wide-4-6{width:calc((99.999% / 6) * 4);}
+		&.wide-5-6{width:calc((99.999% / 6) * 5);}
+		&.wide-6-6{width:100%;}
+		
+		&.wide-1-7{width:calc((99.999% / 7));}
+		&.wide-2-7{width:calc((99.999% / 7) * 2);}
+		&.wide-3-7{width:calc((99.999% / 7) * 3);}
+		&.wide-4-7{width:calc((99.999% / 7) * 4);}
+		&.wide-5-7{width:calc((99.999% / 7) * 5);}
+		&.wide-6-7{width:calc((99.999% / 7) * 6);}
+		&.wide-7-7{width:100%;}	
+		
+		&.wide-1-8{width:calc((99.999% / 8));}
+		&.wide-2-8{width:calc((99.999% / 8) * 2);}
+		&.wide-3-8{width:calc((99.999% / 8) * 3);}
+		&.wide-4-8{width:calc((99.999% / 8) * 4);}
+		&.wide-5-8{width:calc((99.999% / 8) * 5);}
+		&.wide-6-8{width:calc((99.999% / 8) * 6);}
+		&.wide-7-8{width:calc((99.999% / 8) * 7);}
+		&.wide-8-8{width:100%;}	
+		
+		&.wide-1-9{width:calc((99.999% / 9));}
+		&.wide-2-9{width:calc((99.999% / 9) * 2);}
+		&.wide-3-9{width:calc((99.999% / 9) * 3);}
+		&.wide-4-9{width:calc((99.999% / 9) * 4);}
+		&.wide-5-9{width:calc((99.999% / 9) * 5);}
+		&.wide-6-9{width:calc((99.999% / 9) * 6);}
+		&.wide-7-9{width:calc((99.999% / 9) * 7);}
+		&.wide-8-9{width:calc((99.999% / 9) * 8);}
+		&.wide-9-9{width:100%;}	
+
+		&.wide-1-10{width:calc((99.999% / 10));}
+		&.wide-2-10{width:calc((99.999% / 10) * 2);}
+		&.wide-3-10{width:calc((99.999% / 10) * 3);}
+		&.wide-4-10{width:calc((99.999% / 10) * 4);}
+		&.wide-5-10{width:calc((99.999% / 10) * 5);}
+		&.wide-6-10{width:calc((99.999% / 10) * 6);}
+		&.wide-7-10{width:calc((99.999% / 10) * 7);}
+		&.wide-8-10{width:calc((99.999% / 10) * 8);}
+		&.wide-9-10{width:calc((99.999% / 10) * 9);}
+		&.wide-10-10{width:100%;}
+
+		&.wide-1-11{width:calc((99.999% / 11));}
+		&.wide-2-11{width:calc((99.999% / 11) * 2);}
+		&.wide-3-11{width:calc((99.999% / 11) * 3);}
+		&.wide-4-11{width:calc((99.999% / 11) * 4);}
+		&.wide-5-11{width:calc((99.999% / 11) * 5);}
+		&.wide-6-11{width:calc((99.999% / 11) * 6);}
+		&.wide-7-11{width:calc((99.999% / 11) * 7);}
+		&.wide-8-11{width:calc((99.999% / 11) * 8);}
+		&.wide-9-11{width:calc((99.999% / 11) * 9);}
+		&.wide-10-11{width:calc((99.999% / 11) * 10);}
+		&.wide-11-11{width:100%;}	
+
+		&.wide-1-12{width:calc((99.999% / 12));}
+		&.wide-2-12{width:calc((99.999% / 12) * 2);}
+		&.wide-3-12{width:calc((99.999% / 12) * 3);}
+		&.wide-4-12{width:calc((99.999% / 12) * 4);}
+		&.wide-5-12{width:calc((99.999% / 12) * 5);}
+		&.wide-6-12{width:calc((99.999% / 12) * 6);}
+		&.wide-7-12{width:calc((99.999% / 12) * 7);}
+		&.wide-8-12{width:calc((99.999% / 12) * 8);}
+		&.wide-9-12{width:calc((99.999% / 12) * 9);}
+		&.wide-10-12{width:calc((99.999% / 12) * 10);}
+		&.wide-11-12{width:calc((99.999% / 12) * 11);}
+		&.wide-12-12{width:100%;}		
+	}
+}
