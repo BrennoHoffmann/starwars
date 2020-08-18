@@ -14,6 +14,8 @@ import 'jquery-validation/dist/localization/messages_pt_BR';
 import 'calc-polyfill/calc.min';
 import 'picturefill';
 
+
+
 jQuery(document).ready(function($){
 	
 	
@@ -34,4 +36,9 @@ jQuery(document).ready(function($){
 
 	  $(".openDados").fancybox();
 
+	$('.imgForm').click(function(e){
+		$( "#searchForm" ).submit();
+	});	
+
+	  
 });	

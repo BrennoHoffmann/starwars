@@ -33,6 +33,7 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
 /* SUPORTE AO MENU */
 if ( function_exists( 'register_nav_menu' ) ) {
 	register_nav_menu( 'menu_principal', 'Menu do Topo' );
+	add_theme_support( 'custom-logo');
 }
 
 /* CONFIGURA O SUPORTE A MINIATURAS */

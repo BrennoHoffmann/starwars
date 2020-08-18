@@ -8,7 +8,6 @@
 @import "base/_variables";
 @import "base/_grid";
 @import "base/_fonts";
-@import "components/_spritesheet.scss";
 
 /****ALL******/
 html, body{
@@ -219,11 +218,12 @@ a{
 	background:RGBA(0,0,0,0.8);
 	padding:5px;
 	overflow:hidden;
-	border-bottom: 1px solid #ffff43;
+	border-bottom: 1px solid $main;
 	position: fixed;
     top: 0;
     width: 100%;
-    overflow: hidden;
+	overflow: hidden;
+	z-index: 99;
 	img{
 		vertical-align: middle;
 		padding: 5px;
@@ -231,7 +231,7 @@ a{
 	ul.menu{
 		@include max-tablet{
 			position:fixed;
-			top: 100px;
+			top: 90px;
 			right:-100%;
 			width:240px;
 			background:RGBA(32,32,32,1);
@@ -251,10 +251,11 @@ a{
 			
 			li{
 				list-style:none;
-				
+				padding-bottom: 20px;
 				a{
 					font-weight:600;
-					color:#ffff43;
+					color:$main;
+					font-size: 21px;
 				}
 			}
 		}
@@ -263,10 +264,10 @@ a{
 			padding:0;
 			margin:0;
 			display:block;
-			width:calc(100% - 270px);
+			width:100%;
 			margin-top: 4%;
 			@include wide{
-				width:calc(100% - 300px);
+				width:100%;
 			}
 			
 			li{
@@ -279,10 +280,22 @@ a{
 				padding-right: 30px;
 				a{
 					font-weight:700;
-					color: #ffff43;
+					color: $main;
 					font-size: 21px;
 				}
+				&:last-child{
+					border-right: none;
+				}
 						
+			}
+			.current_page_item::after{
+				content: " ";
+				margin-top: 5px;
+				border-bottom: 2px solid #ffff43;
+				display: block;
+				width: 35px;
+				margin-left: auto;
+				margin-right: auto;
 			}	
 		}
 
@@ -308,7 +321,7 @@ a{
 			display:block;
 			width: 31px;
 			height: 4px;
-			background-color:#ffff43;
+			background-color:$main;
 			margin: 5px 0 1px;
 			transition: 0.4s;
 		}
@@ -333,7 +346,9 @@ a{
 	background:RGBA(0,0,0,0.8);
 	padding:5px;
 	overflow:hidden;
-	border-top: 1px solid #ffff43;
+	border-top: 1px solid $main;
+    bottom: -30px;
+    width: 100%;
 	span{
 		color: #efefee;
 		padding: 10px;
@@ -345,17 +360,17 @@ a{
 
 /*MAIN*/
 .main{
-	margin-top: 12%;
+	margin-top: 8%;
 	@include max-tablet{
 		margin-top: 30%;
 	}
 	h1{
-		color: #ffff43;
+		color: $main;
 		text-align: center;
 		font-size: 48px;
 	}
 	p{
-		color: #ffff43;
+		color: $main;
 		font-size: 24px;
 		text-align: center;
 	}
@@ -369,27 +384,43 @@ a{
 	}
 }
 .personagens{
+	position: relative;
+	min-height: 588px;
 	.nav{
+		text-align: center;
 		li{
 			display: inline;
 		}
 		.btn_nav{
-			border: none;
+			border: 1px solid $main;
 			outline: none;
 			padding: 10px 16px;
-			background-color: #f1f1f1;
+			background-color: RGBA(0,0,0,0.8);
 			cursor: pointer;
 			font-size: 18px;
 		}
+		a{
+			color: white;
+		}
 		.active{
 			a{
-				background-color: #ffff43;
+				background-color: $main;
+				color: black;
 			}
 		}
+		@include max-tablet{
+			.btn_nav{
+				font-size: 14px;
+				padding: 5px 10px;
+			}
+
+		}
+		margin-bottom: 25px;
+		margin-top: 25px;
 	}
 	ul{
 		li{
-			color: #ffff43;
+			color: $main;
 		}
 	}
 	.boxes{
@@ -400,9 +431,22 @@ a{
 			flex: 0 0 33.333333%;
 			a{
 				font-size: 21px;
-				color: #ffff43;
+				color: $main;
 				cursor: pointer;
 			}
+			@include max-tablet{
+				flex: 0 0 48%;
+				padding: 5px;
+				h1{
+					font-size: 26px;
+				}
+			}
+			@include desktop{
+				&:last-child{
+					flex: 0 0 100%;
+				}
+			}
+
 		}
 	}
 	input{
@@ -412,16 +456,317 @@ a{
 		margin-right: auto;
 		padding: 10px;
 		margin-bottom: 10px;
-		border: 2px solid #ffff43;
+		border: 2px solid $main;
 		border-radius: 25px;
 		background: none;
-		color: #ffff43;
+		color: $main;
 		font-weight: bold;
 		font-size: 26px;
-
 		&::placeholder{
-			color: #ffff43;
+			color: $main;
 			font-weight: bold;
+		}
+
+		@include max-tablet{
+			width: 100%;
+			font-size: 18px;
+		}
+	}
+	.imgForm{
+		position: absolute;
+		right: 30%;
+		top: 2.5%;
+		display: inline-block;
+		cursor: pointer;
+		@include max-mobile{
+			right: 10%;
+    		top: 2%;
+		}
+	}
+
+	// INTERNA 
+	.boxInterna{
+		//ABAS
+		.toggle{
+			.tabs {
+				border-bottom: 1px solid $main;
+				width: 100%;
+				overflow: hidden;
+				height: 36px;
+				line-height: 36px;
+				.tab {
+					float: left;
+					background: white;
+					color: #777777;
+					height: 31px;
+					margin: 2px 8px 0;
+					padding: 0 8px;
+					cursor: pointer;
+				  }
+				.active {
+					color: black;
+					border-bottom: 3px solid $main;
+				  }
+			  }
+			  .panels{
+				.panel {
+					padding: 20px 10px;
+					display: none;
+				  }
+				.panel:first-child {
+					display: block;
+				  }
+			  }
+		}
+
+		//CONTEUDO
+		.imgPersonagem{
+			background-color: #efefee;
+			padding: 10px;
+		}
+		h4{
+			color: $main;
+			font-size: 26px;
+			span{
+				color: white;
+				text-transform: capitalize;
+			}
+		}
+		h2{
+			color: $main;
+			font-size: 26px;
+		}
+		ul{
+			li{
+				font-size: 21px;
+				list-style: disc;
+				margin-left: 4%;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+
+// FANCYBOX
+.dados{
+	background-image: url('../img/popup-background.jpg');
+	border-radius: 25px;
+    border: 2px solid $main;
+	h4{
+		color: white;
+		font-weight: bold;
+		font-size: 21px;
+		span{
+			text-transform: capitalize;
+		}
+	}
+	a{
+		background-color: $main;
+		padding: 5px;
+		padding-right: 15px;
+		padding-left: 15px;
+		border-radius: 25px;
+		color: black;
+	}
+	.fancybox-close-small{
+		color: white;
+	}
+}
+
+// SINGLE 
+.content{
+	min-height: 500px;
+}
+
+// ESCONDENDO BARRA DE ADMIN
+#wpadminbar { display:none !important;}
+
+// MAIN JS
+.mainJs{
+	.btn {
+		background-color: $main;
+		padding: 5px;
+		padding-right: 15px;
+		padding-left: 15px;
+		border-radius: 25px;
+		color: black;
+	}
+	
+	.btn:hover {
+		background-color: #9bc2cf;
+	}
+	
+	/* -----------*/
+	/* Sticky Nav */
+	/* -----------*/
+	
+	.nav {
+		left: 0;
+		right: 0;
+		top: 0;
+		box-sizing: border-box;
+		padding: 10px;
+		height: 200px;
+		background-color: #ddd;
+		position: fixed;
+		border-bottom: 2px solid white;
+	}
+	
+	.nav .title {
+		float: left;
+	}
+	
+	.nav .title h1 {
+		margin: 0;
+		padding-bottom: 10px;
+	}
+	
+	.nav .links {
+		float: left;
+	}
+	
+	.nav .links ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+	
+	.nav .links ul li {
+		margin-bottom: 5px;
+	}
+	
+	/* ----------- */
+	/* Loading bar */
+	/* ----------- */
+	
+	.loading_bar_wrapper {
+		box-sizing: border-box;
+		width: 100%;
+		height: 5px;
+		border: 1px solid #ddd;
+		margin: 0 auto;
+	}
+	
+	.loading_bar {
+		height: 100%;
+		background-color: lightblue;
+	}
+	
+	/* ------------- */
+	/* Page sections */
+	/* ------------- */
+	
+	.section_container {
+		margin-bottom: 10px;
+		width: 100%;
+		/* float: left; */
+	}
+	
+	.section_container table {
+		border-collapse: collapse;
+		width: 100%;
+	}
+	
+	.section_container table td {
+		padding: 10px;
+	}
+	
+	.data_item {
+		background-color: #ddd;
+		border-bottom: 1px solid white;
+	}
+	
+	.data_item .field {
+		text-transform: capitalize;
+	}
+	
+	.section_container h2 {
+		margin: 5px;
+		padding: 10px;
+		text-transform: capitalize;
+	}
+	
+	/* ------------------- */
+	/* Assocaited entities */
+	/* ------------------- */
+	
+	.heading {
+		padding: 10px;
+	}
+	
+	.heading .title {
+		display: inline-block;
+	}
+	
+	.heading .title h2 {
+		margin: 0;
+		padding: 0;
+	}
+	
+	.heading .action {
+		float: right;
+	}
+	
+	.associated .data_item {
+		padding: 20px;
+	}
+	
+	.associated .data_item .view {
+		float: right;
+	}
+	
+	.associated .data_item:hover {
+		cursor: pointer;
+		background-color: lightblue;
+	}
+	
+	.associated .data_item:hover .btn {
+		background-color: #9bc2cf;
+	}
+	
+	/* ------------- */
+	/* Media Queries */
+	/* ------------- */
+	
+	@media screen and (min-width: 400px) {
+		.nav {
+			height: 150px;
+		}
+	
+		#container {
+			margin-top: 150px;
+		}
+	}
+	
+	@media screen and (min-width: 750px) {
+		body {
+			font-size: 16px;
+		}
+	
+		.nav {
+			height: 65px;
+		}
+	
+		.nav .links {
+			margin-left: 20px;
+		}
+	
+		#container {
+			margin: 65px auto 0;
+			width: 500px;
+		}
+	
+		.associated .data_item {
+			padding: 10px;
+		}
+	
+		.associated .data_item .view .view_entity {
+			display: none;
+		}
+	
+		.associated .data_item:hover .view .view_entity {
+			display: inline-block;
 		}
 	}
 }

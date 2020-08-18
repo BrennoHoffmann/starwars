@@ -35,7 +35,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col mobile-1-2 desk-1-4">
-					<img src="<?php bloginfo('template_url'); ?>/dist/img/logo-small.png"/>
+					<?php the_custom_logo(); ?>
 				</div>
 				<div class="col mobile-1-2 desk-3-4">
 					<ul class="menu" data-trigger="#hamburguer">

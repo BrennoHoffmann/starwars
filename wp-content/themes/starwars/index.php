@@ -7,7 +7,9 @@
 					while (have_posts()) : the_post();
 			?>
 				<article>
-					<h1><?php the_title(); ?></h1>
+					<?php if(!(is_page( 'home' ))): ?>
+						<h1><?php the_title(); ?></h1>
+					<?php endif; ?>
 					<div class="content">
 						<?php the_content(); ?>
 					</div>
