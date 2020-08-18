@@ -345,7 +345,10 @@ a{
 
 /*MAIN*/
 .main{
-	margin-top: 30%;
+	margin-top: 12%;
+	@include max-tablet{
+		margin-top: 30%;
+	}
 	h1{
 		color: #ffff43;
 		text-align: center;
@@ -363,5 +366,57 @@ a{
 		padding-bottom: 25px;
 		padding-top: 25px;
 
+	}
+}
+.personagens{
+	.nav{
+		li{
+			display: inline;
+		}
+		.btn_nav{
+			border: none;
+			outline: none;
+			padding: 10px 16px;
+			background-color: #f1f1f1;
+			cursor: pointer;
+			font-size: 18px;
+		}
+		.active{
+			a{
+				background-color: #ffff43;
+			}
+		}
+	}
+	ul{
+		li{
+			color: #ffff43;
+		}
+	}
+	.boxes{
+		display: flex;
+		flex-wrap: wrap;
+		padding-left: 0;
+		.box{
+			flex: 0 0 33.333333%;
+		}
+	}
+	input{
+		display: block;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 10px;
+		margin-bottom: 10px;
+		border: 2px solid #ffff43;
+		border-radius: 25px;
+		background: none;
+		color: #ffff43;
+		font-weight: bold;
+		font-size: 26px;
+
+		&::placeholder{
+			color: #ffff43;
+			font-weight: bold;
+		}
 	}
 }
