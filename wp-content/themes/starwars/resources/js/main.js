@@ -32,4 +32,6 @@ jQuery(document).ready(function($){
 		});
 	  });
 
+	  $(".openDados").fancybox();
+
 });	

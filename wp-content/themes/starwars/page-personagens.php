@@ -23,26 +23,22 @@
 <div class="main personagens">
 	<div class="container">
 		<div class="row">
-            <input id="myInput" type="text" placeholder="Busque pelo ser personagem favorito!">
+            <input id="myInput" type="text" placeholder="Busque pelo seu personagem favorito!">
             <div id="boxes" class="boxes">
+                <?php $count = 0; ?>
                 <?php foreach($allPersonagens as $pesonagem): ?>
                     <div class="box">
-                        <h1><?php echo $pesonagem["name"]; ?></h1>
+                        <a href="#dados<?php echo $count; ?>" class="openDados"><?php echo $pesonagem["name"]; ?></a>
+                        <div style="display: none;">
+                            <div id="dados<?php echo $count; ?>" class="dados">
+                                <h1>Data de Nascimento: <?php echo $pesonagem["birth_year"]; ?></h1>
+                            </div>  
+                        </div>
                     </div>
-                <?php endforeach; ?>
+                <?php $count++; endforeach; ?>
             </div>
 		</div>
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#boxes *").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
-</script>
 <?php get_footer(); ?>

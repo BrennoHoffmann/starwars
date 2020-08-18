@@ -398,6 +398,11 @@ a{
 		padding-left: 0;
 		.box{
 			flex: 0 0 33.333333%;
+			a{
+				font-size: 21px;
+				color: #ffff43;
+				cursor: pointer;
+			}
 		}
 	}
 	input{
