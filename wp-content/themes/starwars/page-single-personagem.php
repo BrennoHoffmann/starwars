@@ -22,14 +22,14 @@
                             <div class='panels'>
                                 <div class='panel'>
                                     <div class="row">
-                                        <div class="col mobile-1-2">
+                                        <div class="col mobile-1-1 desk-1-2">
                                             <h4>Nome Completo: <span><?php echo $pesonagem["name"]; ?></span></h4>
                                             <h4>Data de Nascimento: <span><?php echo $pesonagem["birth_year"]; ?></span></h4>
                                             <h4>Cor dos Olhos: <span><?php echo $pesonagem["eye_color"]; ?></span></h4>
                                             <h4>Cor do Cabelo: <span><?php echo $pesonagem["hair_color"]; ?></span></h4>
                                             <h4>Cor da Pele: <span><?php echo $pesonagem["skin_color"]; ?></span></h4>
                                         </div>
-                                        <div class="col mobile-1-2">
+                                        <div class="col mobile-1-1 desk-1-2">
                                             <h4>Altura: <span><?php echo $pesonagem["height"]; ?>cm</span></h4>
                                             <h4>Peso: <span><?php echo $pesonagem["mass"]; ?>kg</span></h4>
                                             <h4>Gênero: <span><?php echo $pesonagem["gender"]; ?></span></h4>
@@ -45,7 +45,12 @@
                                         foreach ($pesonagem["films"] as $films) :
                                             $filme = json_decode(file_get_contents($films), true);
                                         ?>
-                                            <li><?php echo $filme["title"]; ?> - <span><?php  echo date('d/m/Y',  strtotime($filme["release_date"]));  ?></span></li>
+                                            <li>
+                                                <?php $filme_url = basename($filme["url"]); ?>
+                                                <a href="<?php echo home_url() . '/filme?id=' . $filme_url; ?>" target="_blank" rel="noopener">
+                                                    <?php echo $filme["title"]; ?> - <span><?php  echo date('d/m/Y',  strtotime($filme["release_date"]));  ?></span>
+                                                </a> 
+                                            </li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>

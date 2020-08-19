@@ -47,7 +47,7 @@ $url = home_url($wp->request);
                                         <?php
                                             $personagem_url = basename($pesonagem["url"]);
                                         ?>
-                                        <a href="<?php echo home_url() . '/personagem?id=' . $personagem_url; ?>">Ver mais detalhes</a>
+                                        <a href="<?php echo home_url() . '/personagem?id=' . $personagem_url; ?>" target="_blank" rel="noopener">Ver mais detalhes</a>
                                     </div>
                                 </div>
                             </div>

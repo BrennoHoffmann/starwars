@@ -27,7 +27,9 @@
                 <?php $count = 0; ?>
                 <?php foreach($allPersonagens as $pesonagem): ?>
                     <div class="box">
-                        <a href="#dados<?php echo $count; ?>" class="openDados"><h1><?php echo $pesonagem["name"]; ?></h1></a>
+                        <a href="#dados<?php echo $count; ?>" class="openDados">
+                            <h1><?php echo $pesonagem["name"]; ?></h1>
+                        </a>
                         <div style="display: none;">
                             <div id="dados<?php echo $count; ?>" class="dados">
                                 <div class="row">
@@ -47,10 +49,10 @@
                                         <?php
                                             $personagem_url = basename($pesonagem["url"]);
                                         ?>
-                                        <a href="<?php echo home_url() . '/personagem?id=' . $personagem_url; ?>">Ver mais detalhes</a>
+                                        <a href="<?php echo home_url() . '/personagem?id=' . $personagem_url; ?>" target="_blank" rel="noopener">Ver mais detalhes</a>
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                 <?php $count++; endforeach; ?>
