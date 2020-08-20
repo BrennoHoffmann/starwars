@@ -29,7 +29,7 @@ jQuery(document).ready(function($){
 
 	$("#myInput").on("keyup", function() {
 		var value = $(this).val().toLowerCase();
-		$("#boxes a").filter(function() {
+		$("#boxes h1").filter(function() {
 		  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
 		});
 	  });
