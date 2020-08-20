@@ -20,6 +20,9 @@ body{
 	background-attachment: fixed;
 	background-size: 100%;
 }
+.blockScroll{
+	overflow: hidden;
+}
 
 .i-p-t{padding-top:40px;}
 .i-p-b{padding-bottom:40px;}
@@ -614,6 +617,24 @@ a{
 // SINGLE 
 .content{
 	min-height: 500px;
+	h1{
+		text-align: left;
+	}
+	p{
+		text-align: left;
+	}
+	a{
+		color: white;
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+	img{
+		max-width: 100%;
+	}
+	iframe{
+		max-width: 100%;
+	}
 }
 
 // ESCONDENDO BARRA DE ADMIN

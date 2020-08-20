@@ -7,9 +7,11 @@ $arrayPosts = array();
 <div class="main">
 	<div class="container">
 		<?php while (have_posts()) : the_post(); ?>
-			<h1><?php the_title(); ?></h1>
 			<div class="content">
-				<?php the_content(); ?>
+				<h1><?php the_title(); ?></h1>
+				<p>
+					<?php the_content(); ?>
+				</p>
 			</div>
 		<?php endwhile; ?>
 	</div>

@@ -21,6 +21,7 @@ $url = home_url($wp->request);
         </div>
         <div class="row">
             <div id="boxes" class="boxes">
+                <?php if($personagens_json_data["results"]): ?>
                 <?php $count = 0; ?>
                 <?php foreach ($personagens_json_data["results"] as $pesonagem) : ?>
                     <div class="box">
@@ -55,6 +56,9 @@ $url = home_url($wp->request);
                     </div>
                 <?php $count++;
                 endforeach; ?>
+                <?php else: ?>
+                    <h1>Nenhum personagem encontrado, talvez você esteja pensando na saga errada... </h1>
+                <?php endif; ?>
             </div>
         </div>
         <div <?php if (!empty($_GET["search"])) : ?>style="display: none;" <?php endif; ?> class="row">

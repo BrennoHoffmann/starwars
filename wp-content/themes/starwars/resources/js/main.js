@@ -40,5 +40,6 @@ jQuery(document).ready(function($){
 		$( "#searchForm" ).submit();
 	});	
 
+	$( '.filmeInterna' ).parent().addClass('blockScroll');
 	  
 });	
